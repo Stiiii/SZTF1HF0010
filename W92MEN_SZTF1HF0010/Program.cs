@@ -23,42 +23,46 @@ namespace W92MEN_SZTF1HF0010
         static void SpiralKiiras(int[,] matrix, int sorokszama, int oszlopokszama)
         {
             string vegeredmeny = "";
+            int i = matrix.GetLength(0) - 1;
             int j = 0;
-            int i = matrix.GetLength(0);
             int felsohatar = 0;
             int balhatar = 0;
-            int alsohatar = matrix.GetLength(0);
-            int jobboldalihatar = matrix.GetLength(1);
+            int alsohatar = matrix.GetLength(0)-1;
+            int jobboldalihatar = matrix.GetLength(1)-1;
 
-            while (vegeredmeny.Length < (sorokszama*oszlopokszama))
+            while (vegeredmeny.Length < (sorokszama*oszlopokszama)-1)
             {
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && i > felsohatar)
                 {
-                    i--;
                     vegeredmeny += matrix[i, j];
+                    i--;
                 }
                 balhatar++;
-
+                //vegeredmeny = vegeredmeny.Substring(0,vegeredmeny.Length-1);
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && j < jobboldalihatar)
                 {
-                    j++;
                     vegeredmeny += matrix[i, j];
+                    j++;
                 }
                 felsohatar++;
+                //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
 
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && i < alsohatar)
                 {
-                    i++;
                     vegeredmeny += matrix[i, j];
+                    i++;
                 }
                 jobboldalihatar--;
+                //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
 
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && j > balhatar)
                 {
-                    j--;
                     vegeredmeny += matrix[i, j];
+                    j--;
                 }
                 alsohatar--;
+                //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
+                Console.WriteLine(i+" "+j+ " "+ vegeredmeny);
             }
             Console.WriteLine(vegeredmeny);
         }
