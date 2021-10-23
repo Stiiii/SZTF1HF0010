@@ -32,6 +32,7 @@ namespace W92MEN_SZTF1HF0010
 
             while (vegeredmeny.Length < (sorokszama*oszlopokszama)-1)
             {
+                //fel
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && i > felsohatar)
                 {
                     vegeredmeny += matrix[i, j];
@@ -39,6 +40,9 @@ namespace W92MEN_SZTF1HF0010
                 }
                 balhatar++;
                 //vegeredmeny = vegeredmeny.Substring(0,vegeredmeny.Length-1);
+
+
+                //jobb
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && j < jobboldalihatar)
                 {
                     vegeredmeny += matrix[i, j];
@@ -47,6 +51,7 @@ namespace W92MEN_SZTF1HF0010
                 felsohatar++;
                 //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
 
+                //le
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && i < alsohatar)
                 {
                     vegeredmeny += matrix[i, j];
@@ -55,6 +60,7 @@ namespace W92MEN_SZTF1HF0010
                 jobboldalihatar--;
                 //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
 
+                //bal
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && j > balhatar)
                 {
                     vegeredmeny += matrix[i, j];
@@ -76,8 +82,8 @@ namespace W92MEN_SZTF1HF0010
             int oszlopokszama = int.Parse(SorokEsOszlopokSzama[1]);
             int[,] matrix = new int[sorokszama,oszlopokszama];
 
-
-            matrixfeltoltes(matrix,sorokszama,oszlopokszama);
+            matrix = matrixfeltoltes(matrix, sorokszama, oszlopokszama);
+            
             SpiralKiiras(matrix, sorokszama, oszlopokszama);
 
             Console.ReadKey();
