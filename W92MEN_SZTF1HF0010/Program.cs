@@ -23,40 +23,40 @@ namespace W92MEN_SZTF1HF0010
         static void SpiralKiiras(int[,] matrix, int sorokszama, int oszlopokszama)
         {
             string vegeredmeny = "";
-            int sorszam = 0;
-            int oszlopszam = matrix.GetLength(0);
+            int j = 0;
+            int i = matrix.GetLength(0);
             int felsohatar = 0;
             int balhatar = 0;
-            int alsohatar = matrix.GetLength(1);
+            int alsohatar = matrix.GetLength(0);
             int jobboldalihatar = matrix.GetLength(1);
 
             while (vegeredmeny.Length < (sorokszama*oszlopokszama))
             {
-                while (vegeredmeny.Length < (sorokszama * oszlopokszama) && oszlopszam > felsohatar)
+                while (vegeredmeny.Length < (sorokszama * oszlopokszama) && i > felsohatar)
                 {
-                    oszlopszam--;
-                    vegeredmeny += matrix[oszlopszam, sorszam];
+                    i--;
+                    vegeredmeny += matrix[i, j];
                 }
                 balhatar++;
 
-                while (vegeredmeny.Length < (sorokszama * oszlopokszama) && sorszam < jobboldalihatar)
+                while (vegeredmeny.Length < (sorokszama * oszlopokszama) && j < jobboldalihatar)
                 {
-                    sorszam++;
-                    vegeredmeny += matrix[oszlopszam, sorszam];
+                    j++;
+                    vegeredmeny += matrix[i, j];
                 }
                 felsohatar++;
 
-                while (vegeredmeny.Length < (sorokszama * oszlopokszama) && oszlopszam < alsohatar)
+                while (vegeredmeny.Length < (sorokszama * oszlopokszama) && i < alsohatar)
                 {
-                    oszlopszam++;
-                    vegeredmeny += matrix[oszlopszam, sorszam];
+                    i++;
+                    vegeredmeny += matrix[i, j];
                 }
                 jobboldalihatar--;
 
-                while (vegeredmeny.Length < (sorokszama * oszlopokszama) && sorszam > balhatar)
+                while (vegeredmeny.Length < (sorokszama * oszlopokszama) && j > balhatar)
                 {
-                    sorszam--;
-                    vegeredmeny += matrix[oszlopszam, sorszam];
+                    j--;
+                    vegeredmeny += matrix[i, j];
                 }
                 alsohatar--;
             }
