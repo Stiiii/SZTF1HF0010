@@ -33,18 +33,20 @@ namespace W92MEN_SZTF1HF0010
 
             while (vegeredmeny.Length < (sorokszama*oszlopokszama))
             {
+                bool beszorulte = false;
+
                 //fel
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && i > felsohatar)
                 {
                     vegeredmeny += matrix[i, j];
                     i--;
                     leptunke = true;
+                    beszorulte = true;
                 }
                 if (leptunke)
                 {
                     balhatar++;
                 }
-                //vegeredmeny = vegeredmeny.Substring(0,vegeredmeny.Length-1);
                 leptunke = false;
 
                 //jobb
@@ -53,13 +55,13 @@ namespace W92MEN_SZTF1HF0010
                     vegeredmeny += matrix[i, j];
                     j++;
                     leptunke = true;
+                    beszorulte = true;
                 }
                 if (leptunke)
                 {
                     felsohatar++;
                 }
                 leptunke = false;
-                //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
 
                 //le
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && i < alsohatar)
@@ -67,13 +69,13 @@ namespace W92MEN_SZTF1HF0010
                     vegeredmeny += matrix[i, j];
                     i++;
                     leptunke = true;
+                    beszorulte = true;
                 }
                 if (leptunke)
                 {
                     jobboldalihatar--;
                 }
                 leptunke = false;
-                //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
 
                 //bal
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && j > balhatar)
@@ -81,13 +83,17 @@ namespace W92MEN_SZTF1HF0010
                     vegeredmeny += matrix[i, j];
                     j--;
                     leptunke = true;
+                    beszorulte = true;
                 }
                 if (leptunke)
                 {
                     alsohatar--;
                 }
                 leptunke = false;
-                //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
+                if (!beszorulte)
+                {
+                    vegeredmeny += matrix[i, j];
+                }
                 Console.WriteLine(i+" "+j+ " "+ vegeredmeny+"   Felsohatar: " +felsohatar+"  JobboldaliHatar: "+jobboldalihatar+"  alsohatar: "+alsohatar+"  baloldalihatar: "+balhatar );
             }
             Console.WriteLine(vegeredmeny);
