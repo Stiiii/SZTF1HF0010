@@ -22,6 +22,7 @@ namespace W92MEN_SZTF1HF0010
 
         static void SpiralKiiras(int[,] matrix, int sorokszama, int oszlopokszama)
         {
+            bool leptunke = false;
             string vegeredmeny = "";
             int i = matrix.GetLength(0) - 1;
             int j = 0;
@@ -37,19 +38,27 @@ namespace W92MEN_SZTF1HF0010
                 {
                     vegeredmeny += matrix[i, j];
                     i--;
+                    leptunke = true;
                 }
-                
-                balhatar++;
+                if (leptunke)
+                {
+                    balhatar++;
+                }
                 //vegeredmeny = vegeredmeny.Substring(0,vegeredmeny.Length-1);
-
+                leptunke = false;
 
                 //jobb
                 while (vegeredmeny.Length < (sorokszama * oszlopokszama) && j < jobboldalihatar)
                 {
                     vegeredmeny += matrix[i, j];
                     j++;
+                    leptunke = true;
                 }
-                felsohatar++;
+                if (leptunke)
+                {
+                    felsohatar++;
+                }
+                leptunke = false;
                 //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
 
                 //le
@@ -57,8 +66,13 @@ namespace W92MEN_SZTF1HF0010
                 {
                     vegeredmeny += matrix[i, j];
                     i++;
+                    leptunke = true;
                 }
-                jobboldalihatar--;
+                if (leptunke)
+                {
+                    jobboldalihatar--;
+                }
+                leptunke = false;
                 //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
 
                 //bal
@@ -66,8 +80,13 @@ namespace W92MEN_SZTF1HF0010
                 {
                     vegeredmeny += matrix[i, j];
                     j--;
+                    leptunke = true;
                 }
-                alsohatar--;
+                if (leptunke)
+                {
+                    alsohatar--;
+                }
+                leptunke = false;
                 //vegeredmeny = vegeredmeny.Substring(0, vegeredmeny.Length - 1);
                 Console.WriteLine(i+" "+j+ " "+ vegeredmeny+"   Felsohatar: " +felsohatar+"  JobboldaliHatar: "+jobboldalihatar+"  alsohatar: "+alsohatar+"  baloldalihatar: "+balhatar );
             }
