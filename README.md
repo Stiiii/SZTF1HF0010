@@ -10,8 +10,10 @@ S↑←←←←                                                                
                                                                                    ↑↑↑↓↓
                                                                                    ↑↑↑←↓
                                                                                    S↑←←←
+                                                                                   
 A mátrixban mindig a bal alsó sarokból kell indulnia és körkörösen befele haladva kell kiolvasni a
 karaktereket, míg nem ér eli az utolsó karaktert (melynek pontos helye a mátrix méretétől függ).
 Vagyis a bal alsó sarokból felfelé kell menni egészen a mátrix tetejéig, ahonnan jobbra kell tovább
 haladni a mátrix jobb széléig, amit követően az aljáig lefelé kell kiolvasni a karaktereket. Ezután
 egészen a kezdőpont előtti karakterig kell haladni majd felfelé és így tovább egyre beljebb a mátrixban.
+[SZTF1HF0010.pdf](https://github.com/Stiiii/W92MEN_SZTF1HF0010/files/7409474/SZTF1HF0010.pdf)
