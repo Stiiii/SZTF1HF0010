@@ -4,23 +4,22 @@ namespace W92MEN_SZTF1HF0010
 {
     class Program
     {
-        static int[,] matrixfeltoltes(int[,] matrixMetodusban,int sorokszama, int oszlopokszama)
+        static char[,] matrixfeltoltes(char[,] matrixMetodusban,int sorokszama, int oszlopokszama)
         {
-            matrixMetodusban = new int[sorokszama, oszlopokszama];
-            Random r = new Random();
-            for (int i = 0; i < matrixMetodusban.GetLength(0); i++)
+            matrixMetodusban = new char[sorokszama, oszlopokszama];
+
+            for (int i = 0; i < sorokszama; i++)
             {
-                for (int j = 0; j < matrixMetodusban.GetLength(1); j++)
+                string sor = Console.ReadLine();
+                for (int j = 0; j < oszlopokszama; j++)
                 {
-                    matrixMetodusban[i, j] = r.Next(0, 10);
-                    Console.Write(matrixMetodusban[i, j] + " ");
+                    matrixMetodusban[i, j] = sor[j];
                 }
-                Console.WriteLine();
             }
             return matrixMetodusban;
         }
 
-        static void SpiralKiiras(int[,] matrix, int sorokszama, int oszlopokszama)
+        static void SpiralKiiras(char[,] matrix, int sorokszama, int oszlopokszama)
         {
             bool leptunke = false;
             string vegeredmeny = "";
@@ -94,24 +93,20 @@ namespace W92MEN_SZTF1HF0010
                 {
                     vegeredmeny += matrix[i, j];
                 }
-                Console.WriteLine(i+" "+j+ " "+ vegeredmeny+"   Felsohatar: " +felsohatar+"  JobboldaliHatar: "+jobboldalihatar+"  alsohatar: "+alsohatar+"  baloldalihatar: "+balhatar );
+                //Console.WriteLine(i+" "+j+ " "+ vegeredmeny+"   Felsohatar: " +felsohatar+"  JobboldaliHatar: "+jobboldalihatar+"  alsohatar: "+alsohatar+"  baloldalihatar: "+balhatar );
             }
             Console.WriteLine(vegeredmeny);
         }
         static void Main(string[] args)
         {
-            Random r = new Random();
-            Console.WriteLine("Add meg a mátrix méreteit!");
             string bemenet = Console.ReadLine();
             string[] SorokEsOszlopokSzama =(bemenet.Split(" "));
             int sorokszama = int.Parse(SorokEsOszlopokSzama[0]);
             int oszlopokszama = int.Parse(SorokEsOszlopokSzama[1]);
-            int[,] matrix = new int[sorokszama,oszlopokszama];
+            char[,] matrix = new char[sorokszama,oszlopokszama];
 
             matrix = matrixfeltoltes(matrix, sorokszama, oszlopokszama);
             SpiralKiiras(matrix, sorokszama, oszlopokszama);
-
-            Console.ReadKey();
         }
     }
 }
